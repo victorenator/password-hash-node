@@ -6,11 +6,11 @@ npm install password-hash-node
 
 ## Use
 ```javascript
-const passwordHash = require('password-hash-node');
+import {create, verify} from 'password-hash-node';
 
-const hash = await passwordHash.create('password', 'SSHA');
+const hash = await create('password', 'SSHA');
 
-const valid = await passwordHash.verify('password', hash);
+const valid = await verify('password', hash);
 ```
 
 # Schemas
@@ -21,4 +21,3 @@ const valid = await passwordHash.verify('password', hash);
 
 # License
 Copyright ⓒ 2016 Viktar Vaŭčkievič
-

@@ -1,21 +1,29 @@
 {
     "name": "password-hash-node",
-    "version": "1.0.0",
-    
+    "version": "2.0.0",
+    "type": "module",
+    "exports": {
+        ".": "./index.js"
+    },
     "author": {
         "name": "Viktar Vaŭčkievič",
         "email": "victorenator@gmail.com"
     },
     "license": "MIT",
-    
-    "keywords": ["password-hash", "async-await"],
+    "keywords": [
+        "password-hash"
+    ],
     "homepage": "https://github.com/victorenator/password-hash-node",
     "repository": {
         "type": "git",
-        "url": "https://github.com/victorenator/password-hash-node.git"
+        "url": "git+https://github.com/victorenator/password-hash-node.git"
     },
-    
     "engines": {
-        "node": "7"
+        "node": ">=18"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.13.0",
+        "eslint": "^9.13.0",
+        "globals": "^15.11.0"
     }
 }
