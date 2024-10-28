@@ -36,9 +36,9 @@ export async function create(password, schema = 'PBKDF2/24/20000/24/sha256') {
  * Verifies password
  * @param {String} password
  * @param {String} passwordHash
- * @returns {Boolean}
+ * @returns {Promise<Boolean>}
  */
-export function verify(password, passwordHash) {
+export async function verify(password, passwordHash) {
     const p = passwordHash.indexOf('}');
     if (passwordHash.charAt(0) !== '{' || p === -1) {
         throw new Error('Invalid hash');
@@ -50,7 +50,7 @@ export function verify(password, passwordHash) {
 
     switch (schemaParts[0]) {
         case 'PBKDF2':
-            return verifyPBKDF2(password, hash, Number(schemaParts[1]), Number(schemaParts[2]), Number(schemaParts[3]), schemaParts[4]);
+            return await verifyPBKDF2(password, hash, Number(schemaParts[1]), Number(schemaParts[2]), Number(schemaParts[3]), schemaParts[4]);
 
         case 'SSHA256':
             return verifySSHA256(password, hash, Number(schemaParts[1]));
